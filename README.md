@@ -1,4 +1,4 @@
-# 🔐 SynCryptAI — Private AI Operating System
+# 🔐 SynCryptAI — Private cloud AI encrypted Operating System
 
 > Your data. Your machine. Your AI. Nobody else's business.
 

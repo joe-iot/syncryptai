@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Joy - SynCryptAI</title>
+  <meta name="description" content="Joy is a multi-discipline technologist with 40 years of experience in electronics, cybersecurity, systems architecture, and digital privacy. Builder of SynCryptAI.">
+  <link rel="icon" href="https://raw.githubusercontent.com/joe-iot/syncryptai/main/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060D1F;
+      --blue: #1A56FF;
+      --cyan: #00C8FF;
+      --cyan2: #00FFEA;
+      --white: #F4F7FF;
+      --gray: #A8BCDA;
+      --border: rgba(0,200,255,0.12);
+      --glow: 0 0 40px rgba(0,200,255,0.15);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--white); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(0,200,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,0.025) 1px,transparent 1px); background-size:50px 50px; pointer-events:none; z-index:0; }
+    .bg-mesh { position:fixed; inset:0; z-index:0; background:radial-gradient(ellipse 80% 50% at 20% 20%,rgba(26,86,255,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(0,200,255,0.06) 0%,transparent 60%); pointer-events:none; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:18px 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(6,13,31,0.85); backdrop-filter:blur(24px); border-bottom:1px solid var(--border); }
+    .logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .logo img { width:36px; height:36px; border-radius:50%; }
+    .logo-text { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.1rem; color:var(--white); }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { color:var(--gray); text-decoration:none; font-size:0.875rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--cyan); }
+    .nav-btn { padding:9px 22px; border:1px solid rgba(0,200,255,0.35); border-radius:8px; color:var(--cyan); text-decoration:none; font-size:0.875rem; font-weight:600; transition:all 0.2s; }
+    .nav-btn:hover { background:var(--cyan); color:var(--bg); }
+    .hamburger { display:none !important; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+    .hamburger span { width:24px; height:2px; background:var(--white); border-radius:2px; transition:all 0.3s; display:block; }
+
+    /* PAGE */
+    .page { position:relative; z-index:1; max-width:800px; margin:0 auto; padding:140px 5% 80px; }
+
+    .eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--cyan); margin-bottom:14px; }
+    .page-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; line-height:1.1; letter-spacing:-1.5px; margin-bottom:48px; }
+    .page-title span { background:linear-gradient(135deg,var(--blue),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+    .card { background:rgba(10,21,48,0.7); border:1px solid var(--border); border-radius:20px; padding:36px; margin-bottom:24px; transition:all 0.3s; }
+    .card:hover { border-color:rgba(0,200,255,0.25); box-shadow:var(--glow); }
+    .card-label { font-size:0.72rem; letter-spacing:3px; color:var(--cyan); margin-bottom:16px; font-family:'DM Sans',sans-serif; }
+    .card p { color:var(--gray); font-size:0.975rem; line-height:1.8; margin-bottom:14px; }
+    .card p:last-child { margin-bottom:0; }
+    .card p strong { color:var(--white); }
+    .card blockquote { border-left:3px solid var(--cyan); padding-left:18px; margin:16px 0; }
+    .card blockquote p { color:var(--white); font-size:1.05rem; font-weight:600; font-style:italic; }
+
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .tag { background:rgba(0,200,255,0.07); border:1px solid rgba(0,200,255,0.15); border-radius:20px; padding:5px 14px; font-size:0.78rem; color:var(--white); }
+
+    .desert { color:var(--gray); font-size:0.85rem; margin-top:20px; font-style:italic; }
+
+    .blessing { background:linear-gradient(135deg,rgba(26,86,255,0.08),rgba(0,200,255,0.04)); border:1px solid rgba(0,200,255,0.18); border-radius:20px; padding:40px 36px; margin-top:24px; text-align:center; position:relative; overflow:hidden; }
+    .blessing::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:200px; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); }
+    .blessing p { color:var(--gray); font-size:1rem; line-height:1.9; font-style:italic; }
+    .blessing p strong { color:var(--white); font-style:normal; }
+    .blessing .build { display:inline-block; margin-top:20px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.1rem; background:linear-gradient(135deg,var(--blue),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+    /* FOOTER */
+    footer { position:relative; z-index:1; border-top:1px solid var(--border); padding:32px 5%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-logo { display:flex; align-items:center; gap:8px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--white); }
+    .footer-logo img { width:24px; height:24px; border-radius:50%; }
+    .footer-links { display:flex; gap:24px; list-style:none; flex-wrap:wrap; }
+    .footer-links a { color:var(--gray); font-size:0.82rem; text-decoration:none; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--cyan); }
+    .footer-copy { color:var(--gray); font-size:0.78rem; }
+
+    @media (max-width:768px) {
+      nav { padding:16px 5%; }
+      .nav-links { display:none; }
+      .hamburger { display:flex !important; }
+      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(6,13,31,0.97); backdrop-filter:blur(24px); padding:20px 5% 28px; gap:4px; border-bottom:1px solid var(--border); z-index:99; }
+      .nav-links.open li a { display:block; padding:12px 0; font-size:1rem; border-bottom:1px solid var(--border); color:var(--white); }
+      .hamburger { display:flex; }
+      .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+      .hamburger.open span:nth-child(2) { opacity:0; }
+      .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+      .nav-btn { display:none; }
+      .page { padding:110px 5% 60px; }
+      footer { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<nav>
+  <a href="/" class="logo">
+    <img src="https://raw.githubusercontent.com/joe-iot/syncryptai/main/android-chrome-512x512.png" alt="SynCryptAI">
+    <span class="logo-text">SynCryptAI</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#features" onclick="closeNav()">Features</a></li>
+    <li><a href="/#how" onclick="closeNav()">How It Works</a></li>
+    <li><a href="/#demos" onclick="closeNav()">Demos</a></li>
+    <li><a href="/#who" onclick="closeNav()">Who It's For</a></li>
+    <li><a href="about.html" class="active" onclick="closeNav()">About</a></li>
+    <li><a href="/#connect" onclick="closeNav()">Connect</a></li>
+    <li><a href="/" onclick="openPoll ? openPoll() : null;closeNav();">Poll</a></li>
+    <li><a href="/" onclick="closeNav()">Quiz</a></li>
+  </ul>
+  <a href="mailto:iot.esystems@gmail.com" class="nav-btn">Contact</a>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page">
+  <div class="eyebrow">// About</div>
+  <h1 class="page-title">Some people specialize.<br><span>Joy collects skills.</span></h1>
+
+  <!-- THE BUILDER -->
+  <div class="card">
+    <div class="card-label">// THE BUILDER</div>
+    <p>Over four decades, Joy has worked across <strong>electronics, cybersecurity, wireless networks, CCTV and alarm systems, cable TV infrastructure, early internet networks, software development, systems architecture, 3D design and fabrication,</strong> and pharmaceutical operations.</p>
+    <p>Not sequentially - often simultaneously.</p>
+    <p>Joy has designed and built electronic circuits and controllers from scratch, laid cable TV and wired internet infrastructure in the early days of the internet, developed systems for security and surveillance, trained teachers and students in Maker education, and founded a regional Maker center - advising, consulting, and building across all of it.</p>
+    <p>The thread connecting all of it: finding technological solutions by seeing problems from multiple angles at once. When you understand both the circuit board and the network, both the software and the hardware, both the threat and the defense - you start seeing gaps that specialists miss.</p>
+  </div>
+
+  <!-- WHY SYNCRYPTAI -->
+  <div class="card">
+    <div class="card-label">// WHY SYNCRYPTAI</div>
+    <p>In a world where every convenience comes attached to a surveillance agreement, Joy asked a simple question:</p>
+    <blockquote>
+      <p>"Why does 'smart' have to mean 'monitored'?"</p>
+    </blockquote>
+    <p>Why should your files live on someone else's server? Why should your AI conversations train someone else's model? Why should backing up your WhatsApp mean handing your life to Google?</p>
+    <p>SynCryptAI was built as the answer. A private AI operating system that runs entirely on your own hardware. No cloud dependency. No monthly surveillance tax. Just your machine, your data, and your rules.</p>
+  </div>
+
+  <!-- EXPERTISE -->
+  <div class="card">
+    <div class="card-label">// EXPERTISE</div>
+    <div class="tags">
+      <span class="tag">Electronics & Circuit Design</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Wireless Networks</span>
+      <span class="tag">CCTV & Alarm Systems</span>
+      <span class="tag">Systems Architecture</span>
+      <span class="tag">Software Development</span>
+      <span class="tag">Early Internet Infrastructure</span>
+      <span class="tag">3D Design & Fabrication</span>
+      <span class="tag">Maker Education</span>
+      <span class="tag">Pharmaceutical Operations</span>
+      <span class="tag">Technology Consulting</span>
+      <span class="tag">AI Systems Integration</span>
+    </div>
+    <p class="desert">Currently building from a small community in the desert. 🏜️</p>
+  </div>
+
+  <!-- BLESSING -->
+  <div class="blessing">
+    <p>
+      "The most powerful thing you can own in the digital age<br>
+      is not a device - it is the data on it.<br><br>
+      <strong>May your files be yours.</strong><br>
+      <strong>May your conversations stay private.</strong><br>
+      <strong>May your future be sovereign.</strong>
+    </p>
+    <span class="build">Build it now.</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/joe-iot/syncryptai/main/android-chrome-192x192.png" alt="logo">
+    SynCryptAI
+  </div>
+  <ul class="footer-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#demos">Demos</a></li>
+    <li><a href="/#who">Who It's For</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="/#connect">Connect</a></li>
+    <li><a href="mailto:iot.esystems@gmail.com">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 SynCryptAI - Your data stays home.</div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('open'); }
+function closeNav() { document.getElementById('navLinks').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
+</script>
+</body>
+</html>
